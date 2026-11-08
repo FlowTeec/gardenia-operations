@@ -1,0 +1,217 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-brand: var(--brand);
+  --color-brand-green: var(--brand-green);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  /* Sampled from public/brand/eagle-logo.png: teal #0890a0, green #10a050, gray #808080, canvas #e6e6e6. */
+  --brand: #0890a0;
+  --brand-green: #10a050;
+  --brand-gray: #808080;
+  --brand-canvas: #e6e6e6;
+  /* Logo teal darkened 10% so white button text clears 4.5:1. Same hue, no new color. */
+  --primary: #078290;
+  --primary-foreground: #ffffff;
+  --background: #f4f4f4;
+  --foreground: #242424;
+  --card: #ffffff;
+  --card-foreground: #242424;
+  --popover: #ffffff;
+  --popover-foreground: #242424;
+  --secondary: #f0f0f0;
+  --secondary-foreground: #242424;
+  --muted: #f0f0f0;
+  --muted-foreground: #595959;
+  --accent: #e6f4f6;
+  --accent-foreground: #055863;
+  --destructive: #9d2c2c;
+  --border: #e6e6e6;
+  --input: #d5d5d5;
+  --ring: #0890a0;
+  --chart-1: #0890a0;
+  --chart-2: #10a050;
+  --chart-3: #078290;
+  --chart-4: #808080;
+  --chart-5: #595959;
+  --radius: 0.5rem;
+  --sidebar: #f7f7f7;
+  --sidebar-foreground: #242424;
+  --sidebar-primary: #078290;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e6f4f6;
+  --sidebar-accent-foreground: #055863;
+  --sidebar-border: #e6e6e6;
+  --sidebar-ring: #0890a0;
+}
+
+.dark {
+  --brand: oklch(0.74 0.1 208);
+  --brand-green: oklch(0.74 0.15 151);
+  --background: oklch(0.2 0.02 213);
+  --foreground: oklch(0.97 0.005 210);
+  --card: oklch(0.25 0.02 213);
+  --card-foreground: oklch(0.97 0.005 210);
+  --popover: oklch(0.25 0.02 213);
+  --popover-foreground: oklch(0.97 0.005 210);
+  --primary: oklch(0.74 0.1 208);
+  --primary-foreground: oklch(0.22 0.04 210);
+  --secondary: oklch(0.3 0.02 213);
+  --secondary-foreground: oklch(0.97 0.005 210);
+  --muted: oklch(0.3 0.02 213);
+  --muted-foreground: oklch(0.78 0.02 210);
+  --accent: oklch(0.32 0.03 209);
+  --accent-foreground: oklch(0.97 0.005 210);
+  --destructive: oklch(0.7 0.17 25);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.74 0.1 208);
+  --chart-1: oklch(0.74 0.1 208);
+  --chart-2: oklch(0.74 0.15 151);
+  --chart-3: oklch(0.62 0.08 211);
+  --chart-4: oklch(0.7 0 0);
+  --chart-5: oklch(0.5 0.03 210);
+  --sidebar: oklch(0.22 0.02 213);
+  --sidebar-foreground: oklch(0.97 0.005 210);
+  --sidebar-primary: oklch(0.74 0.1 208);
+  --sidebar-primary-foreground: oklch(0.22 0.04 210);
+  --sidebar-accent: oklch(0.32 0.03 209);
+  --sidebar-accent-foreground: oklch(0.97 0.005 210);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.74 0.1 208);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  input[type="checkbox"],
+  input[type="radio"] {
+    accent-color: var(--primary);
+  }
+  select:focus-visible {
+    border-color: var(--ring);
+    outline: none;
+    box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 45%, transparent);
+  }
+}
+
+.status-pending,
+.tone-watch {
+  background: #e6f4f6;
+  color: #055863;
+}
+.status-pending-strong {
+  background: #d3eef2;
+  color: #044e58;
+}
+.status-approved,
+.zone-open {
+  background: #e3f6eb;
+  color: #0a5c32;
+}
+.status-rejected,
+.tone-alert {
+  background: #f8ecec;
+  color: #7a2424;
+}
+.status-partial {
+  background: #e8f3f5;
+  color: #0a6170;
+}
+.status-prepared,
+.zone-closed {
+  background: #f3f3f3;
+  color: #3a3a3a;
+  box-shadow: inset 0 0 0 1px #d0d0d0;
+}
+.status-issued {
+  background: #eeeeee;
+  color: #3f3f3f;
+}
+.zone-open-solid {
+  background: #0c6e3c;
+  color: #ffffff;
+}
+
+.summary-card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--brand);
+  background: var(--card);
+  box-shadow: 0 1px 2px rgb(36 36 36 / 0.05);
+}
+a.summary-card:hover {
+  border-color: color-mix(in srgb, var(--brand) 40%, var(--border));
+}
+
+@media screen {
+  main table thead tr {
+    background: #e6f4f6;
+  }
+  main table tbody tr:hover {
+    background: #f3fafb;
+  }
+  main a.underline-offset-4 {
+    color: var(--primary);
+  }
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
